@@ -1,0 +1,59 @@
+
+//Map with Generic using Operation 1.add 2.delete 3.Update 4.search
+
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+public class Main {
+	public static void main(String[] args) {
+		HashMap<String, Double> h1 = new HashMap<String, Double>();
+
+		h1.put("Snehaa", new Double(50000));
+		h1.put("Neha", new Double(40000));
+		h1.put("Junnu", new Double(34000));
+		h1.put("Naina", new Double(45000));
+		Set<Map.Entry<String, Double>> s1 = h1.entrySet();
+
+		Iterator iterator = s1.iterator();
+		while (iterator.hasNext()) {
+
+			Map.Entry m1 = (Map.Entry) iterator.next();
+			System.out.println("Name :" + m1.getKey());
+			System.out.println(m1.getValue());
+		}
+
+		System.out.println();
+		Double var = h1.get("Junnu");
+		System.out.println("Value of key(Junnu) is:" + var);
+
+		System.out.println();
+		// Remove
+		System.out.println("After Delete element");
+		h1.remove("Naina");
+
+		Set s2 = h1.entrySet();
+		Iterator iterator2 = s2.iterator();
+		while (iterator2.hasNext()) {
+			Map.Entry m2 = (Map.Entry) iterator2.next();
+			System.out.println("Key is:" + m2.getKey() + " & Value is:");
+			System.out.println(m2.getValue());
+
+		}
+		System.out.println();
+
+		// Update
+		System.out.println("After Update elements");
+		h1.put("Snehaa", new Double(65000));
+		System.out.println("New Map :" + h1);
+
+		System.out.println();
+
+		System.out.println("After Seaching elements");
+		System.out.println(h1.containsKey(45000));
+		System.out.println(h1.containsKey("Neha"));
+
+	}
+}
